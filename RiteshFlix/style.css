@@ -1,0 +1,272 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  background: #0f0f0f;
+  color: #fff;
+  line-height: 1.4;
+}
+
+/* Navbar (Desktop) */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #000;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  color: #e50914;
+  font-size: 22px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links li {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.nav-links li.active,
+.nav-links li:hover {
+  opacity: 1;
+  color: #e50914;
+}
+
+/* Hero */
+.hero {
+  padding: 8vh 5vw;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: clamp(24px, 5vw, 36px);
+  margin-bottom: 8px;
+}
+
+.hero p {
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+.cta {
+  background: #e50914;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Feed */
+.feed {
+  padding: 20px;
+}
+
+.feed h3 {
+  margin-bottom: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.card h4 {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+/* Bottom Nav (Mobile) */
+.bottom-nav {
+  display: none;
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: #000;
+    border-top: 1px solid #222;
+    z-index: 200;
+  }
+
+  .tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
+  .tab span {
+    font-size: 10px;
+    margin-top: 2px;
+  }
+
+  .tab.active {
+    opacity: 1;
+    color: #e50914;
+  }
+
+  body {
+    padding-bottom: 70px;
+  }
+}
+
+
+/* Intro Screen */
+#intro {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Logo animation */
+.intro-logo {
+  color: #e50914;
+  font-size: clamp(36px, 8vw, 72px);
+  font-weight: 700;
+  letter-spacing: 1px;
+  animation: introAnim 2.2s ease forwards;
+}
+
+/* Keyframes */
+@keyframes introAnim {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+/* BASE STYLES */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0f0f0f;
+  color: #fff;
+}
+
+h2 {
+  margin: 16px;
+  font-size: 1.1rem;
+}
+
+/* ROW / SECTION */
+.row {
+  margin-bottom: 24px;
+}
+
+.row-scroll {
+  display: flex;
+  gap: 12px;                 /* spacing between cards */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 12px;
+  cursor: grab;
+}
+
+/* hide default scrollbar */
+.row-scroll::-webkit-scrollbar {
+  display: none;
+}
+.row-scroll {
+  scrollbar-width: none;
+}
+
+/* CARD – smaller sizes */
+.card {
+  min-width: 100px;       /* smaller width */
+  height: 100px;          /* smaller height */
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  background: #111;
+  transition: transform 0.25s ease, margin 0.25s ease;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hover pop – scale & spacing */
+.card:hover {
+  transform: scale(1.08);
+  margin: 0 6px;  /* smaller margin for smaller cards */
+  z-index: 2;
+}
+
+/* DESKTOP SIZE */
+@media (min-width: 768px) {
+  .card {
+    min-width: 160px;
+    height: 220px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .row-scroll {
+    gap: 16px;
+    padding: 0 16px;
+  }
+
+  .card:hover {
+    margin: 0 8px;
+  }
+}
+
+
